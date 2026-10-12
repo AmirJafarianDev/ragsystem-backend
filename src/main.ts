@@ -28,7 +28,7 @@ async function bootstrap() {
   app.useGlobalInterceptors(new LoggingInterceptor());
 
   // Enable CORS
-  app.enableCors();
+  app.enableCors({ origin: '*' });
 
   await app.listen(port);
   logger.log(`🚀 RAG Application running on: http://localhost:${port}`);
