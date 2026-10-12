@@ -1,3 +1,4 @@
+import 'multer';
 import { BadRequestException, Injectable, Logger } from '@nestjs/common';
 import { DocumentParserService } from './document-parser.service';
 import { TextSplitterService } from './text-splitter.service';
