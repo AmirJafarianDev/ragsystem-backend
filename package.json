@@ -6,10 +6,10 @@
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\"",
-    "start": "nest start",
+    "start": "node dist/main.js",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/main",
+    "start:prod": "node dist/main.js",
     "docker:db:up": "docker compose up -d postgres",
     "docker:db:down": "docker compose down"
   },
@@ -29,11 +29,14 @@
     "pgvector": "^0.2.0",
     "reflect-metadata": "^0.2.2",
     "rxjs": "^7.8.2",
-    "typeorm": "^0.3.21"
-  },
-  "devDependencies": {
+    "typeorm": "^0.3.21",
     "@nestjs/cli": "^10.4.9",
     "@nestjs/schematics": "^10.2.3",
+    "typescript": "^5.8.2",
+    "ts-loader": "^9.5.2",
+    "tsconfig-paths": "^4.2.0"
+  },
+  "devDependencies": {
     "@types/express": "^5.0.0",
     "@types/multer": "^1.4.12",
     "@types/node": "^22.13.9",
@@ -41,9 +44,6 @@
     "@types/pg": "^8.11.11",
     "prettier": "^3.5.3",
     "source-map-support": "^0.5.21",
-    "ts-loader": "^9.5.2",
-    "ts-node": "^10.9.2",
-    "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.8.2"
+    "ts-node": "^10.9.2"
   }
 }

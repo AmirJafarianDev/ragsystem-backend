@@ -30,8 +30,13 @@ async function bootstrap() {
   // Enable CORS
   app.enableCors({ origin: '*' });
 
-  await app.listen(port);
-  logger.log(`🚀 RAG Application running on: http://localhost:${port}`);
+  // Root health endpoint for cloud hosting checks (Render/Railway/AWS)
+  app.getHttpAdapter().get('/', (req: any, res: any) => {
+    res.json({ status: 'ok', service: 'RAG Backend API', version: '1.0.0' });
+  });
+
+  await app.listen(port, '0.0.0.0');
+  logger.log(`🚀 RAG Application running on: http://0.0.0.0:${port}`);
   logger.log(
     `AI Provider: ${configService.get<string>('app.aiProvider')} | Dimension: ${configService.get<number>('app.vectorDimension')}`,
   );
